@@ -2,6 +2,8 @@
 
 Documents congressional committees publish on their **own** websites — press releases, oversight letters, staff reports, released interview transcripts and investigation files. Keyless.
 
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
+
 ## Tools
 
 - `search_committee_documents(...)` — find documents by headline across seven committees, filtered by `committee`, `doc_type` and (where dates exist) `since`.
@@ -93,7 +95,7 @@ The gateway picks the right tool and fills the arguments automatically.
 
 ## More
 
-- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [Docs and guides](https://pipeworx.io/docs)
 - [pipeworx.io](https://pipeworx.io)
 
 ## License
