@@ -2,7 +2,7 @@
 
 Documents congressional committees publish on their **own** websites — press releases, oversight letters, staff reports, released interview transcripts and investigation files. Keyless.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1476+ live data sources.
 
 ## Tools
 
@@ -38,7 +38,7 @@ Not every committee publishes every type. A `doc_type` a committee does not publ
 
 ## Coverage and limits
 
-- **Search matches the document headline/slug, not body or PDF text.** Searching 40,000 pages of body text needs a hosted index. A null result means no headline matched — not that the subject is absent.
+- **Search matches the document headline/slug, not body or PDF text.** Searching 40,000 pages of body text needs full-text indexing. A null result means no headline matched — not that the subject is absent.
 - **PDF text is not extracted.** Attachments come back as url + filename + bytes. Quote the page text and cite the attachment as a link; do not represent a PDF as having been read.
 - Some pages are pure file wrappers with no prose of their own; those return empty text plus a `no_prose_note` rather than the site footer.
 - `get_committee_document` fetches a caller-supplied URL, so it is **host-allowlisted** to the seven committee domains.
@@ -71,7 +71,25 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
+### What this endpoint actually serves
+
+`tools/list` at `https://gateway.pipeworx.io/committee-releases/mcp` returns the tools in the table
+above **plus the shared Pipeworx meta-tools** — `ask_pipeworx`,
+`discover_tools`, `search_within`, `remember`/`recall` and the rest of the
+gateway-wide set. So the tool count you see is larger than this table: a
+single-pack endpoint currently lists roughly 30 shared tools alongside the
+pack's own. The connection's `initialize` response states its exact scope, and
+is the authoritative answer for a given day.
+
+This is deliberate, not multiplexing by accident. The meta-tools are what let a
+scoped connection answer a question this pack does not cover — via
+`ask_pipeworx`, which routes across the whole catalog — without you adding a
+second MCP server. There is currently no way to mount a pack endpoint without
+them; if the extra schemas cost you more context than the routing is worth,
+connect to the full gateway once rather than to several pack endpoints.
+
+Or connect to the full Pipeworx gateway to get every pack's tools listed
+directly, instead of just this one's:
 
 ```json
 {
@@ -83,9 +101,14 @@ Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
 }
 ```
 
+Both URLs reach the same gateway and the same 1476+ data sources. The
+only difference is which pack's tools are listed **directly**; `ask_pipeworx`
+reaches all of them from either one.
+
 ## Using with ask_pipeworx
 
-Instead of calling tools directly, you can ask questions in plain English:
+Instead of calling tools directly, you can ask questions in plain English —
+this works on the pack endpoint above as well as on the full gateway:
 
 ```
 ask_pipeworx({ question: "your question about Committee Releases data" })
