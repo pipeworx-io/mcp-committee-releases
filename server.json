@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/committee-releases",
   "title": "Committee Releases",
   "description": "Committee Releases — documents congressional committees publish on their OWN",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/committee-releases",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-committee-releases",
