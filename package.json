@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-committee-releases",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Committee Releases — documents congressional committees publish on their OWN",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-4ba2b24e61d0f34982bf90aee14b99a193fd4f9d284a75732cfc5c40c0235c21",
-    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
+    "sourceHash": "v1-336cf84bdf1ed0eaa2bf28c66f739343a91e140adea531507724efd7acfb42bd",
+    "sourceCommit": "5b29c2b0c11e1fcd954969a245b474e6e9475116"
   }
 }
