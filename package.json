@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-committee-releases",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Committee Releases — documents congressional committees publish on their OWN websites: press releases, oversight letters, staff reports, released interview transcripts, investigation files and hearing material.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "committee-releases",
     "gatewaySlug": "committee-releases",
-    "sourceHash": "v1-21e92c91064084a5cba53bd078a8d536c6856a85a9b416c66badc632f7846b80",
-    "sourceCommit": "4277282d72f9bf55e548b3799aaf737baf22152f"
+    "sourceHash": "v1-65bc098d4dc09a82153080112a431ce89344f1f648ac21c2504b04444684500e",
+    "sourceCommit": "8cc978183948532674e797c429305c9d8ab2a1c3"
   }
 }
